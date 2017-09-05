@@ -2,3 +2,5 @@
 *.o
 \#*\#
 .\#*
+subconjuntos
+prox-subconj
