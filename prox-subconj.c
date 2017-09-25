@@ -36,6 +36,8 @@ void print(const VINT& v) {
     for( i = 0; i < v.size(); ++i )
       cout << v[i] << " ";
     cout << endl;
+
+    exit(0);
   }
   found = (v == s);
 }
