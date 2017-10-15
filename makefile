@@ -3,7 +3,7 @@ CC=g++
 CFLAGS=-Wall
 
 DEFINES =
-OBJS = sunconjuntos.o prox-subconj.o
+OBJS = caixas.o
 
 ifdef DEBUG
 	CFLAGS += -g
@@ -16,16 +16,12 @@ endif
 .c.o:
 	$(CC) $(DEFINES) $(CFLAGS) -c $<
 
-all: subconjuntos prox-subconj
+all: caixas
 
-subconjuntos: subconjuntos.o
+caixas: caixas.o
 	$(CC) -o $(@) $^
 
-prox-subconj: prox-subconj.o
-	$(CC) -o $(@) $^
-
-subconjuntos.o: subconjuntos.c
-prox-subconj.o: prox-subconj.c
+caixas.o: caixas.c
 
 clean:
-	@rm --recursive --force *.o subconjuntos prox-subconj
+	@rm --recursive --force *.o caixas

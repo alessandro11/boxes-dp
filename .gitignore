@@ -2,8 +2,7 @@
 *.o
 \#*\#
 .\#*
-subconjuntos
-prox-subconj
+caixas
 GPATH
 GRTAGS
 GTAGS
