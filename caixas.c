@@ -120,46 +120,46 @@ int main() {
   }
   n = i;
 
-    /* For each box, sort dimensions. */
-    for(i = 0; i < n; i++)
-      merge_sort_ints(box[i].d, d); /* ..................... SORT_DIMS */
+  /* For each box, sort dimensions. */
+  for(i = 0; i < n; i++)
+    merge_sort_ints(box[i].d, d); /* ..................... SORT_DIMS */
 
-    /* Sort boxes lexicographically. */
-    merge_sort_boxes(box, n, d); /* ........................ SORT_BOXES */
+  /* Sort boxes lexicographically. */
+  merge_sort_boxes(box, n, d); /* ........................ SORT_BOXES */
 
-    /* For each position, compute one longest increasing subsequence
-       that ends in the position. */
-    for(i = 0; i < n; i++) {
-      longest_here_parent[i] = NO_PARENT;
-      longest_here_length[i] = 1;
-    }
-    for(i = 0; i < n; i++)
-      for(j = 0; j < i; j++)
-	if(box_fits(box + j, box + i, d) &&
-	   longest_here_length[i] < longest_here_length[j] + 1) {
-	  longest_here_parent[i] = j;
-	  longest_here_length[i] = longest_here_length[j] + 1;
-	}
-
-    /* Compute the longest increasing subsequence. */
-    longest_last = 0;
-    longest_length = 1;
-    for(i = 1; i < n; i++)
-      if(longest_length < longest_here_length[i]) {
-	longest_last = i;
-	longest_length = longest_here_length[i];
+  /* For each position, compute one longest increasing subsequence
+     that ends in the position. */
+  for(i = 0; i < n; i++) {
+    longest_here_parent[i] = NO_PARENT;
+    longest_here_length[i] = 1;
+  }
+  for(i = 0; i < n; i++)
+    for(j = 0; j < i; j++)
+      if(box_fits(box + j, box + i, d) &&
+         longest_here_length[i] < longest_here_length[j] + 1) {
+        longest_here_parent[i] = j;
+        longest_here_length[i] = longest_here_length[j] + 1;
       }
-    i = longest_last;
-    j = longest_length - 1;
-    for( ; longest_here_length[i] != 1; j--) {
-      longest[j] = i;
-      i = longest_here_parent[i];
-    }
-    longest[j] = i;
 
-     /* Output longest increasing subsequence. */
-     for(i = 0; i < longest_length; i++)
-       printf("%d\n", box[longest[i]].original_position);
+  /* Compute the longest increasing subsequence. */
+  longest_last = 0;
+  longest_length = 1;
+  for(i = 1; i < n; i++)
+    if(longest_length < longest_here_length[i]) {
+      longest_last = i;
+      longest_length = longest_here_length[i];
+    }
+  i = longest_last;
+  j = longest_length - 1;
+  for( ; longest_here_length[i] != 1; j--) {
+    longest[j] = i;
+    i = longest_here_parent[i];
+  }
+  longest[j] = i;
+
+  /* Output longest increasing subsequence. */
+  for(i = 0; i < longest_length; i++)
+    printf("%d\n", box[longest[i]].original_position);
 
   return 0;
 }
