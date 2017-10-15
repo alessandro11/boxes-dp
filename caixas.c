@@ -1,14 +1,14 @@
 /*
  * =====================================================================================
  *
- *       Filename:  subconjuntos.c
+ *       Filename:  caixas.c
  *
- *    Description:  Enumerate all sets of size k from {1 .. n}
+ *    Description:  Empilhando caixas de forma a maximizar a altura da pilha.
  *
  *        Version:  1.0
- *        Created:  05/09/17 16:25:38
+ *        Created:  11/10/17 16:25:38
  *       Revision:  none
- *       Compiler:  gcc
+ *       Compiler:  g++
  *
  *         Author:  Alessandro Elias (POS), ae11@c3sl.ufpr.br
  *        Company:  C3SL
