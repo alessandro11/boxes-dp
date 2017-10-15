@@ -101,22 +101,24 @@ int box_fits(box *_this, box *into_this, int d) {
 }
 
 int main() {
-  int n, d, i, j;
+  int n, d=3, i, j;
   static box box[MAX_BOX];
   static int longest_here_parent[MAX_BOX];
   static int longest_here_length[MAX_BOX];
   static int longest_last;
   static int longest_length;
   static int longest[MAX_BOX];
-  while(Si(n) != EOF) {
 
+  i = 0;
+  while(Si(n) != EOF) {
     /* Read input. */
-    Si(d);
-    for(i = 0; i < n; i++) {
-      box[i].original_position = i + 1;
-      for(j = 0; j < d; j++)
-	Si(box[i].d[j]);
-    }
+    box[i].original_position = i + 1;
+    box[i].d[0] = n;
+    Si(box[i].d[1]);
+    Si(box[i].d[2]);
+    i++;
+  }
+  n = i;
 
     /* For each box, sort dimensions. */
     for(i = 0; i < n; i++)
@@ -155,10 +157,10 @@ int main() {
     }
     longest[j] = i;
 
-    /* Output longest increasing subsequence. */
-    for(i = 0; i < longest_length; i++)
-      printf("%d\n", box[longest[i]].original_position);
-  }
+     /* Output longest increasing subsequence. */
+     for(i = 0; i < longest_length; i++)
+       printf("%d\n", box[longest[i]].original_position);
+
   return 0;
 }
 
