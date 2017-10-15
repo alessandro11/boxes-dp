@@ -156,11 +156,8 @@ int main() {
     longest[j] = i;
 
     /* Output longest increasing subsequence. */
-    printf("%d\n", longest_length);
-    printf("%d", box[longest[0]].original_position);
-    for(i = 1; i < longest_length; i++)
-      printf(" %d", box[longest[i]].original_position);
-    printf("\n");
+    for(i = 0; i < longest_length; i++)
+      printf("%d\n", box[longest[i]].original_position);
   }
   return 0;
 }
