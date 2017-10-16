@@ -164,16 +164,3 @@ int main() {
   return 0;
 }
 
-
-/*
-  https://en.wikipedia.org/wiki/Longest_increasing_subsequence
-  http://www.geeksforgeeks.org/longest-increasing-subsequence/
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main(int argc, char *argv[]) {
-  return 0;
-}
-*/
